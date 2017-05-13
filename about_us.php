@@ -1,1 +1,0 @@
-<h3>About us page</h3>
