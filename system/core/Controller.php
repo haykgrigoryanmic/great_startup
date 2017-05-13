@@ -51,6 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CI_Controller {
 
+
+    public $my_name = "Hayk";
 	/**
 	 * Reference to the CI singleton
 	 *

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Users extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,6 +21,17 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+	    var_dump("Users constroller / index function");
 	}
+
+    public function get()
+    {
+        $this->load->model('users_model');
+        $result = $this->users_model->get_all_users();
+        $data = array(
+            'users' => $result
+        );
+
+		$this->load->view('users/all_users', $data);
+    }
 }
