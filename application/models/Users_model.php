@@ -93,4 +93,9 @@ class Users_model extends CI_Model {
             //Return user data
             return $query->result_array();
     }
+
+    public function create_user($data){
+        $this->db->set($data);
+        return $this->db->insert('users');
+    }
 }
