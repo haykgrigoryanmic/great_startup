@@ -43,7 +43,31 @@ class Users extends CI_Controller {
     }
 
     public function updateUser($id){
-        var_dump("update user ".$id);
+        $this->load->model('users_model');
+	    if(isset($_POST['submit'])){
+	        $data = array(
+	            'username' => $_POST['username'],
+	            'email' => $_POST['email'],
+	            'password' => $_POST['password'],
+            );
+
+	        $result = $this->users_model->update_user($id, $data);
+	        if($result){
+                redirect("users/get");
+            }
+        }else{
+
+            $user = $this->users_model->get_user_by_id($id);
+            $data = array(
+                'user' => $user
+            );
+            $this->load->view('head');
+            $this->load->view('nav_bar');
+            $this->load->view('users/user_nav_bar');
+            $this->load->view('users/update_users', $data);
+
+            $this->load->view('footer');
+        }
     }
 
     public function deleteUser($id){
