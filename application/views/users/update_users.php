@@ -1,3 +1,5 @@
+
+
 <div id="container">
     <h1>Update User</h1>
     <form action="<?php echo site_url('users/update/'.$user->id) ?>" method="POST">
