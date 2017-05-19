@@ -1,3 +1,12 @@
+<div class="well">
+    <h1 id="color">Welcome to our <span class="red">GREAT</span> startup page</h1>
+</div>
+<div class="text">Text 1</div>
+<div class="text">Text 2</div>
+<p class="text">Text 3</p>
+<p class="text">Text 4</p>
+<p id="demo"></p>
+
 <div id="navbar">
     <ul>
         <li>

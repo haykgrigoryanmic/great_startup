@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/public.css">
+    <script type = 'text/javascript' src = "<?php echo base_url(); ?>public/jquery.js"></script>
     <style>
         body{
             background-color: #2e8ece;

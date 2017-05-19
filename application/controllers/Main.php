@@ -24,6 +24,7 @@ class Main extends CI_Controller {
         $this->load->view('head');
 		$this->load->view('nav_bar');
         $this->load->view('footer');
+        $this->load->helper('url');
 	}
 
 //    public function get()

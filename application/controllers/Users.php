@@ -24,6 +24,7 @@ class Users extends CI_Controller {
         $this->load->view('head');
         $this->load->view('nav_bar');
         $this->load->view('users/user_nav_bar');
+        $this->load->helper('url');
         $this->load->view('footer');
 	}
 
