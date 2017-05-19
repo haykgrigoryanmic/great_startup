@@ -70,10 +70,7 @@ class Users extends CI_Controller {
         }
     }
 
-    public function deleteUser($id){
-	    var_dump("delete user ".$id);
-    }
-    public function createUser()
+       public function createUser()
     {
         if(isset($_POST['submit'])){
             $this->load->model('users_model');
@@ -96,5 +93,11 @@ class Users extends CI_Controller {
 
             $this->load->view('footer');
         }
+    }
+    function deleteUser($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('users');
+        redirect('users');
     }
 }

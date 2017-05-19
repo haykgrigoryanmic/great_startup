@@ -104,4 +104,12 @@ class Users_model extends CI_Model {
         $this->db->where("id", $id);
         return $this->db->update('users');
     }
+    public function deleteUser($id){
+        $query = $this->db->get('users');
+        $query_result = $query->result();
+        return $query_result;
+    }
+
+
+
 }
