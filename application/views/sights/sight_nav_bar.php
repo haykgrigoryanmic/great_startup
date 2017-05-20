@@ -1,7 +1,10 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: MKphoto
- * Date: 5/20/2017
- * Time: 11:02 AM
- */
+<div id="navbar">
+    <ul>
+        <li>
+            <a href="<?php echo site_url('sights/create') ?>">Create sight</a>
+        </li>
+        <li>
+            <a href="<?php echo site_url('sights/get') ?>">Get all sights</a>
+        </li>
+    </ul>
+</div>

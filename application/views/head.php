@@ -10,7 +10,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script type = 'text/javascript' src = "<?php echo base_url(); ?>public/jquery.js"></script>
     <style>
         body{
-            background-color: #2e8ece;
+            background-color: #98dbcc;
+            font-size: 16px;
+        }
+        ul li {
+            list-style-type: none;
         }
     </style>
 
