@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2017 at 06:38 PM
+-- Generation Time: May 22, 2017 at 08:46 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -25,26 +25,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `picture`
+--
+
+CREATE TABLE `picture` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sights`
 --
 
 CREATE TABLE `sights` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `location` varchar(255) NOT NULL,
-  `price` int(15) NOT NULL,
-  `rating` int(10) NOT NULL
+  `website` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `map` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `sights`
---
-
-INSERT INTO `sights` (`id`, `name`, `picture`, `description`, `location`, `price`, `rating`) VALUES
-(1, 'Garni', 'th.jpg', 'One of the must to see places in Armenia', 'Garni region', 455, 7),
-(2, 'fj', 'Haghartsin.jpg', 'fyj', 'yu', 12, 5);
 
 -- --------------------------------------------------------
 
@@ -72,6 +76,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
 --
 
 --
+-- Indexes for table `picture`
+--
+ALTER TABLE `picture`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sights`
 --
 ALTER TABLE `sights`
@@ -87,6 +97,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `picture`
+--
+ALTER TABLE `picture`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `sights`
 --

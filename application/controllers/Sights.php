@@ -50,11 +50,11 @@ class Sights extends CI_Controller {
             $this->load->model('sights_model');
             $data = array(
                 "name"=> $_POST["name"],
-                "picture"=> $_POST["picture"],
                 "description"=> $_POST["description"],
-                "location"=> $_POST["location"],
-                "price"=> $_POST["price"],
-                "rating"=> $_POST["rating"],
+                "website"=> $_POST["website"],
+                "address"=> $_POST["address"],
+                "map"=> $_POST["map"],
+                "picture"=> $_POST["picture"],
             );
             $result = $this->sights_model->create_sight($data);
             if(!$result){
