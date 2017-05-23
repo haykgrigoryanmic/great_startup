@@ -57,6 +57,7 @@ $route['users/delete/(:any)'] = "users/deleteUser/$1";
 $route['users/update/(:any)'] = "users/updateUser/$1";
 $route['sights/create'] = "sights/createSight";
 $route['sights/delete/(:any)'] = "sights/deleteSight/$1";
+$route['upload_form'] = "main/upload_form";
 $route['default_controller'] = 'main';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
