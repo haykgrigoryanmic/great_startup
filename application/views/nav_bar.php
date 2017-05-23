@@ -25,6 +25,9 @@
                         <li>
                             <a href="<?php echo site_url('') ?>">About us</a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('upload_form') ?>">Upload form</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
