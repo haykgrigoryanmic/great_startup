@@ -50,6 +50,7 @@ class Users extends CI_Controller {
 	            'username' => $_POST['username'],
 	            'email' => $_POST['email'],
 	            'password' => $_POST['password'],
+                'passconf' => $_POST['passconf'],
             );
 
 	        $result = $this->users_model->update_user($id, $data);
@@ -78,6 +79,7 @@ class Users extends CI_Controller {
             $data = array(
                 "username"=> $_POST["username"],
                 "password"=> $_POST["password"],
+                "passconf"=> $_POST["passconf"],
                 "email"=> $_POST["email"],
             );
             $result = $this->users_model->create_user($data);

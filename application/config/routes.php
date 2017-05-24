@@ -59,5 +59,6 @@ $route['sights/create'] = "sights/createSight";
 $route['sights/delete/(:any)'] = "sights/deleteSight/$1";
 $route['upload_form'] = "main/upload_form";
 $route['default_controller'] = 'main';
+$route['form'] = "form";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

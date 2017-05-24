@@ -23,6 +23,7 @@ class Users_model extends CI_Model {
         $this->db->select("*");
         $this->db->where('email', $data['email']);
         $this->db->where('password', $data['password']);
+        $this->db->where('passconf', $data['passconf']);
         $query = $this->db->get('users');
         if ($query->num_rows() > 0) {
             return $query->result_array();
@@ -109,7 +110,4 @@ class Users_model extends CI_Model {
         $query_result = $query->result();
         return $query_result;
     }
-
-
-
 }
