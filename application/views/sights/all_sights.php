@@ -1,6 +1,6 @@
 <div id="container">
     <h2>HISTORICAL AND CULTURAL SIGHTS IN ARMENIA</h2>
-
+    <?php if($sights):?>
     <?php foreach ($sights as $sight):?>
         <div id="body">
             <div class="well">
@@ -23,5 +23,6 @@
             <span><a href="<?php echo site_url('sights/delete/'.$sight['id']) ?>">Delete</a></span>
         </div>
     <?php endforeach;?>
+            <?php endif;?>
         </div>
 </div>

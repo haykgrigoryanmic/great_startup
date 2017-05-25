@@ -53,6 +53,18 @@ class Sights_model extends CI_Model {
         return $query->row();
     }
 
+    public function get_sight_by_region_id($id){
+        $this->db->select("*");
+        $this->db->where('region', $id);
+        $query = $this->db->get('sights');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
+
        public function create_sight($data){
         $this->db->set($data);
         return $this->db->insert('sights');

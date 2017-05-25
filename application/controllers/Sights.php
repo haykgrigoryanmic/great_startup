@@ -28,6 +28,20 @@ class Sights extends CI_Controller {
         $this->load->view('footer');
     }
 
+    public function getByRegionId($id){
+        $this->load->model('sights_model');
+        $result = $this->sights_model->get_sight_by_region_id((int)$id);
+        $data = array(
+            'sights' => $result
+        );
+
+        $this->load->view('head');
+        $this->load->view('nav_bar');
+        $this->load->view('sights/sight_nav_bar');
+        $this->load->view('sights/all_sights', $data);
+        $this->load->view('footer');
+    }
+
     public function get()
     {
         $this->load->model('sights_model');
@@ -55,9 +69,10 @@ class Sights extends CI_Controller {
                 "address"=> $_POST["address"],
                 "map"=> $_POST["map"],
                 "picture"=> $_POST["picture"],
+                "region"=> (int)$_POST["region"],
             );
             $result = $this->sights_model->create_sight($data);
-            if(!$result){
+            if($result){
                 redirect("sights/get");
             }else{
                 redirect("sights/create");

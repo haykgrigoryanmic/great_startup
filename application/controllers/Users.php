@@ -19,12 +19,20 @@ class Users extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+    }
+
+
+
 	public function index()
 	{
         $this->load->view('head');
         $this->load->view('nav_bar');
         $this->load->view('users/user_nav_bar');
-        $this->load->helper('url');
         $this->load->view('footer');
 	}
 
@@ -72,10 +80,33 @@ class Users extends CI_Controller {
         }
     }
 
-       public function createUser()
+    public function createUserForm(){
+        $this->load->view('head');
+        $this->load->view('nav_bar');
+        $this->load->view('users/user_nav_bar');
+        $this->load->view('users/create_users');
+
+        $this->load->view('footer');
+    }
+   public function createUser()
     {
-        if(isset($_POST['submit'])){
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username', 'Username', 'required',   array('required' => 'Error Message on rule2 for this field_name'));
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('passconf', 'Password confirmation', 'required|matches[password]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->load->view('head');
+            $this->load->view('nav_bar');
+            $this->load->view('users/user_nav_bar');
+            $this->load->view('users/create_users');
+        }
+        else
+        {
             $this->load->model('users_model');
+
             $data = array(
                 "username"=> $_POST["username"],
                 "password"=> $_POST["password"],
@@ -83,18 +114,17 @@ class Users extends CI_Controller {
                 "email"=> $_POST["email"],
             );
             $result = $this->users_model->create_user($data);
-            if(!$result){
+            if ($result)
+            {
                 redirect("users/get");
-            }else{
-                redirect("users/create");
             }
-        }else{
-            $this->load->view('head');
-            $this->load->view('nav_bar');
-            $this->load->view('users/user_nav_bar');
-            $this->load->view('users/create_users');
-
-            $this->load->view('footer');
+            else
+            {
+                $this->load->view('head');
+                $this->load->view('nav_bar');
+                $this->load->view('users/user_nav_bar');
+                $this->load->view('users/create_users');
+            }
         }
     }
     function deleteUser($id)

@@ -52,11 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $route[''] = "main";
+$route['users/createForm'] = "users/createUserForm";
 $route['users/create'] = "users/createUser";
 $route['users/delete/(:any)'] = "users/deleteUser/$1";
 $route['users/update/(:any)'] = "users/updateUser/$1";
 $route['sights/create'] = "sights/createSight";
 $route['sights/delete/(:any)'] = "sights/deleteSight/$1";
+$route['sights/get/(:any)'] = "sights/getByRegionId/$1";
 $route['upload_form'] = "main/upload_form";
 $route['default_controller'] = 'main';
 $route['form'] = "form";
