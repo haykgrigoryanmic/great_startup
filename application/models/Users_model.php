@@ -105,9 +105,21 @@ class Users_model extends CI_Model {
         $this->db->where("id", $id);
         return $this->db->update('users');
     }
-    public function deleteUser($id){
+    public function deleteUserdeleteUser($id){
         $query = $this->db->get('users');
         $query_result = $query->result();
         return $query_result;
+    }
+
+    public function login_user($data){
+        $this->db->select("*");
+        $this->db->where('username', $data['username']);
+        $this->db->where('password', $data['password']);
+        $query = $this->db->get('users');
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        } else {
+            return false;
+        }
     }
 }

@@ -16,17 +16,16 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a href="<?php echo site_url('users') ?>">User page</a>
-                        </li>
+                        <?php if(isset($admin)){?>
+                            <li>
+                                <a href="<?php echo site_url('users') ?>">User page</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo site_url('upload_form') ?>">Upload form</a>
+                            </li>
+                        <?php } ?>
                         <li>
                             <a href="<?php echo site_url('sights') ?>">Sightseeing</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo site_url('') ?>">About us</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo site_url('upload_form') ?>">Upload form</a>
                         </li>
                     </ul>
                 </li>
@@ -37,13 +36,23 @@
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
+
             <ul class="nav navbar-nav navbar-right">
+                <?php if(isset($admin)){?>
+                    <span><?php echo $admin['username']?></span>
                 <li>
-                    <a href="#">Login</a>
+                    <a href="logout">Log Out</a>
+                </li>
+
+                <?php } else { ?>
+                <li>
+                    <a href="users/login">Login</a>
                 </li>
                 <li>
                     <a href="#">Sign Up</a>
                 </li>
+                <?php } ?>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

@@ -19,25 +19,41 @@ class Main extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
+	private $user_data = [];
     public function __construct()
     {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
+
+        if($this->session->logged_in && $this->session->logged_in['role'] == 'admin'){
+            $this->user_data = array(
+                'admin' => $this->session->logged_in
+            );
+        }
     }
 
 	public function index()
 	{
-        $this->load->view('head');
-		$this->load->view('nav_bar');
-        $this->load->view('content');
-        $this->load->view('footer');
+        $data = array(
+            'views' => array("nav_bar", "content"),
+            'user_data' => $this->user_data
+        );
+
+        $this->load->view('lay_1', $data);
+
+//        $this->load->view('head');
+//		$this->load->view('nav_bar', $this->user_data);
+//        $this->load->view('content');
+//        $this->load->view('footer');
 	}
+
+
 
 	public function upload_form(){
 
 
         $this->load->view('head');
-        $this->load->view('nav_bar');
+        $this->load->view('nav_bar', $this->user_data);
         $this->load->view('upload/upload_form', array('error' => ' ' ));
         $this->load->view('footer');
         $this->load->helper('url');
@@ -60,7 +76,7 @@ class Main extends CI_Controller {
             $error = array('error' => $this->upload->display_errors());
 
             $this->load->view('head');
-            $this->load->view('nav_bar');
+            $this->load->view('nav_bar', $this->user_data);
             $this->load->view('upload/upload_form', $error);
             $this->load->view('footer');
             $this->load->helper('url');
@@ -70,7 +86,7 @@ class Main extends CI_Controller {
             $data = array('upload_data' => $this->upload->data());
 
             $this->load->view('head');
-            $this->load->view('nav_bar');
+            $this->load->view('nav_bar', $this->user_data);
             $this->load->view('upload/upload_success', $data);
             $this->load->view('footer');
             $this->load->helper('url');

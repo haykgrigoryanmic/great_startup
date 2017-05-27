@@ -18,12 +18,29 @@ class Sights extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+    private $user_data = [];
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper(array('form', 'url'));
+
+        if($this->session->logged_in && $this->session->logged_in['role'] == 'admin'){
+            $this->user_data = array(
+                'admin' => $this->session->logged_in
+            );
+        }
+    }
+
 
     public function index()
     {
         $this->load->view('head');
-        $this->load->view('nav_bar');
-        $this->load->view('sights/sight_nav_bar');
+        $this->load->view('nav_bar', $this->user_data);
+        if(!empty($this->user_data)){
+            $this->load->view('sights/sight_nav_bar');
+        }
+        $this->load->view('sights/sight_view');
         $this->load->helper('url');
         $this->load->view('footer');
     }
@@ -36,8 +53,11 @@ class Sights extends CI_Controller {
         );
 
         $this->load->view('head');
-        $this->load->view('nav_bar');
-        $this->load->view('sights/sight_nav_bar');
+        $this->load->view('nav_bar', $this->user_data);
+        if(!empty($this->user_data)){
+            $this->load->view('sights/sight_nav_bar');
+        }
+//        $this->load->view('sights/sight_view');
         $this->load->view('sights/all_sights', $data);
         $this->load->view('footer');
     }
@@ -51,8 +71,11 @@ class Sights extends CI_Controller {
         );
 
         $this->load->view('head');
-        $this->load->view('nav_bar');
-        $this->load->view('sights/sight_nav_bar');
+        $this->load->view('nav_bar', $this->user_data);
+        if(!empty($this->user_data)){
+            $this->load->view('sights/sight_nav_bar');
+        }
+        $this->load->view('sights/sight_view');
         $this->load->view('sights/all_sights', $data);
         $this->load->view('footer');
     }
@@ -79,8 +102,11 @@ class Sights extends CI_Controller {
             }
         }else{
             $this->load->view('head');
-            $this->load->view('nav_bar');
-            $this->load->view('sights/sight_nav_bar');
+            $this->load->view('nav_bar', $this->user_data);
+            if(!empty($this->user_data)){
+                $this->load->view('sights/sight_nav_bar');
+            }
+            $this->load->view('sights/sight_view');
             $this->load->view('sights/create_sights');
 
             $this->load->view('footer');

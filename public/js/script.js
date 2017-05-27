@@ -12,13 +12,13 @@ $('.test div').each(function () {
 $('.select-region-button').on('click', function (e) {
     e.preventDefault();
     var val = $('.select-region select#region').val();
-    if(val){
+//     if(val){
         var action = $('form.select-region').attr('action');
         action = action+'/'+val;
         $('form.select-region').attr('action', action);
         $('form.select-region').submit();
-    }
-
+//     }
+//
 });
 
 $('.add-another-image').on('click', function (e) {
