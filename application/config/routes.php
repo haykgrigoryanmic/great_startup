@@ -52,7 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-$route[''] = "main";
+$route[''] = "main/index";
+$route['main'] = "main/index";
 $route['users/createForm'] = "users/createUserForm";
 $route['content'] = "content";
 $route['users/create'] = "users/createUser";
