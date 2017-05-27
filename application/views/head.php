@@ -5,6 +5,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="utf-8">
     <title>Welcome to CodeIgniter</title>
+    <link rel="stylesheet" href="public/css/stylish-portfolio.css" type="text/css" media="screen">
+
+    <!-- Custom Fonts -->
+    <link href="public/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
 
     <link rel="stylesheet" href="<?php echo base_url();?>public/css/bootstrap.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="<?php echo base_url();?>public/css/style.css" type="text/css" media="screen"/>
